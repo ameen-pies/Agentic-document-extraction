@@ -23,11 +23,13 @@ pip install -r requirements.txt
    cp .env.example .env
    ```
 
-2. Edit `.env` and add your OpenAI API key:
+2. Edit `.env` and add your Groq API key:
    ```
-   OPENAI_API_KEY=sk-your-actual-api-key-here
+   GROQ_API_KEY=gsk-your-actual-groq-api-key-here
    ```
-
+   
+   Get your free Groq API key at: https://console.groq.com/keys
+   
    **Important**: Never commit your `.env` file to version control!
 
 ### 4. Run the Pipeline
@@ -41,7 +43,7 @@ python main.py
 - `main.py` - Entry point
 - `ade_pipeline.py` - Orchestrates OCR and AI extraction
 - `ocr.py` - Tesseract OCR wrapper
-- `agent.py` - OpenAI-powered extraction agent
+- `agent.py` - Groq-powered extraction agent (using Llama 3.3 70B)
 - `schema.py` - Pydantic data models
 - `.env` - Your environment variables (not tracked in git)
 - `.env.example` - Template for environment variables
@@ -49,5 +51,9 @@ python main.py
 ## How It Works
 
 1. **OCR**: Extracts raw text from invoice image using Tesseract
-2. **Agent**: Uses GPT-4o-mini to understand and structure the data
+2. **Agent**: Uses Groq's Llama 3.3 70B model to understand and structure the data
 3. **Output**: Returns validated structured data (invoice number, date, vendor, amount, etc.)
+
+- ⚡ **Ultra-fast inference** - Responses in milliseconds
+- 🆓 **Free tier** - Generous free usage limits
+- 🤖 **Powerful models** - Access to Llama 3.3 70B and other top models
